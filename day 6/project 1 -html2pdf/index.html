@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pdf generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <div class="main-container" id="mca-result">
+        <div class="heading-container">
+            <h1>MCA Marks summary Sheet</h1>
+            <h2>Session : july 2022</h2>
+        </div>
+        <div class="table-container">
+            <table>
+                <th>s. no</th>
+                <th>Roll no</th>
+                <th>Student Name</th>
+                <th>max mark</th>
+                <th>obtained mark</th>
+                <tr>
+                    <td>1</td>
+                    <td>21/FCA/MCA/001</td>
+                    <td>aashish kumar</td>
+                    <td>100</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>21/FCA/MCA/002</td>
+                    <td>abhay kumar singh</td>
+                    <td>100</td>
+                    <td>50</td>
+                </tr><tr>
+                    <td>3</td>
+                    <td>21/FCA/MCA/003</td>
+                    <td>abhyanand kumar</td>
+                    <td>100</td>
+                    <td>50</td>
+                </tr><tr>
+                    <td>4</td>
+                    <td>21/FCA/MCA/004</td>
+                    <td>aditya kumar</td>
+                    <td>100</td>
+                    <td>50</td>
+                </tr><tr>
+                    <td>5</td>
+                    <td>21/FCA/MCA/005</td>
+                    <td>amal prakash</td>
+                    <td>100</td>
+                    <td>50</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <div class="button-container">
+        <button onclick="generatepdf()">Download pdf </button>
+    </div>
+
+            <script type="text/javascript">
+			function generatepdf(){
+				var element = document.getElementById('mca-result');
+var opt = {
+  margin:       1,
+  filename:     'myfile.pdf',
+  image:        { type: 'jpeg', quality: 0.98 },
+  html2canvas:  { scale: 2 },
+  jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+};
+
+html2pdf().set(opt).from(element).save();
+
+html2pdf(element, opt);
+			}
+		</script>
+    
+</body>
+</html>
